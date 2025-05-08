@@ -1,0 +1,17 @@
+name: Create Directory on EC2 
+on:
+  workflow_dispatch: 
+jobs:
+  create-dir:
+    runs-on: ubuntu-latest 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Create directory on EC2 instance
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          mkdir -p ~/abcd
