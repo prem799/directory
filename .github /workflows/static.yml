@@ -1,6 +1,6 @@
 name: Create Directory on EC2 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:  
 jobs:
   create-dir:
     runs-on: ubuntu-latest 
